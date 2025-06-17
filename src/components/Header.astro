@@ -12,8 +12,11 @@
       <ul>
         <li>
           <a href="#">首頁</a>
+        </li><li>
           <a href="#">甜點</a>
+        </li><li>
           <a href="#">登入</a>
+        </li><li>
           <img
             class="cartlogo"
             src={Astro.url + "/images/shopping_cart.png"}
@@ -24,6 +27,7 @@
     </div>
   </my-container>
 </header>
+
 <style lang="scss">
   @use "../styles/_vars";
   header {
@@ -39,7 +43,6 @@
   }
   img {
     width: 2.5rem;
-    margin-top: 1.875rem;
   }
   .logotype {
     width: 10.7rem;
@@ -51,11 +54,13 @@
     gap: 3.75rem;
     font-size: 1rem;
     margin: 0;
+    padding: 0;
+    height: 1.5rem;
+    line-height: 1.5rem;
   }
   a {
     color: #3f5d45;
     text-decoration: none;
-    margin-left: 2.75rem;
     &:visited,
     &:link,
     &:active {
@@ -64,6 +69,16 @@
   }
   .cartlogo {
     width: 1.5rem;
-    margin-left: 5rem;
+    height: auto;
+  }
+
+  .icon,
+  .navbar ul {
+    display: flex;
+    align-items: center;
+  }
+
+  li:has(.cartlogo) {
+    line-height: 0;
   }
 </style>

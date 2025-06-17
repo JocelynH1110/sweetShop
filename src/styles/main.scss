@@ -1,6 +1,7 @@
 @use "./_vars";
-* {
-  box-sixing: border-box;
+
+*, *::after, *::before {
+  box-sizing: border-box;
 }
 
 :root {
