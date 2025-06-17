@@ -1,0 +1,4 @@
+[tools]
+node = "24.1.0"
+"npm:pnpm" = "10.11.1"
+"npm:prettier" = "3.5.3"
