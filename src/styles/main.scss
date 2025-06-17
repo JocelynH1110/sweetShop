@@ -1,0 +1,35 @@
+@use "./_vars";
+* {
+  box-sixing: border-box;
+}
+
+:root {
+  --primary: #3f5d45;
+  --header-fg: var(--primary);
+  --secondary: #eaf0ed;
+  --footer-fg: var(--primary);
+  --footer-bg: var(--secondary);
+  --tertiary: #8da291;
+  --botton: #ffe180;
+  --bottom-bg: var(--bottom);
+}
+
+html,
+body {
+  margin: 0;
+  font-size: 100%;
+  font-family: vars.$font-sans;
+}
+
+my-container {
+  display: block;
+  width: var(--container-width);
+
+  // 左右 margin
+  margin-inline: auto;
+
+  @media screen and (max-width: #{vars.$container-width}) {
+    width: 100%;
+    padding-inline: 1.5rem; // 等於<html> font size 24px
+  }
+}
