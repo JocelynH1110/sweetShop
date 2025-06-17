@@ -22,8 +22,19 @@ const { title } = Astro.props;
       <slot />
     </main>
     <Footer />
-    <h1>Astro</h1>
   </body>
 </html>
 
-<style></style>
+<style>
+  html {
+    overflow-x: hidden;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+  }
+  main {
+    flex: 1;
+  }
+</style>
