@@ -1,0 +1,26 @@
+---
+import type { Dessert } from "../interfaces";
+interface Props {
+  dessert: Dessert;
+}
+const { dessert } = Astro.props;
+---
+
+<article>
+  <div class="img-wrapper">
+    <img src="/images/p-1.png" alt="" />
+    <p>名字{dessert.name}</p>
+    <p>NT$ {dessert.price}</p>
+  </div>
+  <a href="#">加入購物車</a>
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+  }
+  .img-wrapper {
+    overflow: hidden;
+  }
+</style>

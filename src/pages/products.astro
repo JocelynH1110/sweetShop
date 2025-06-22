@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { desserts } from "../data";
+import DessertCard from "../components/DessertCard.astro";
+---
+
+<Layout title="Product">
+  <my-container>
+    <img class="banner" src="/images/banner.png" alt="" />
+
+    <div class="container">
+      <section>
+        <p>甜點類別</p>
+        <ol>
+          <a href="#"><li>所有甜點</li></a>
+          <a href="#"><li>本日精選</li></a>
+          <a href="#"><li>人氣推薦</li></a>
+          <a href="#"><li>新品上市</li></a>
+        </ol>
+      </section>
+
+      <div class="grid">
+        {desserts.map((dessert) => <DessertCard dessert={dessert} />)}
+      </div>
+    </div>
+  </my-container>
+</Layout>
+<style>
+  .banner {
+    width: 100%;
+    margin-bottom: 3.75rem;
+  }
+  .container {
+    display: flex;
+  }
+  section {
+    width: 18.75rem;
+    align-items: center;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    p {
+      background: #3f5d45;
+      color: #eaf0ed;
+      width: 100%;
+      height: 4.06rem;
+      margin: 0;
+    }
+    ol {
+      margin: 0;
+      padding: 0;
+      width: 18.75rem;
+      color: #3f5d45;
+      font-weight: bold;
+      background: #eaf0ed;
+    }
+    li {
+      border: 1px solid #eaf0ed;
+      list-style-type: none;
+      color: #3f5d45;
+      font-weight: bold;
+      padding: 1rem;
+      background: #ffffff;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+</style>
