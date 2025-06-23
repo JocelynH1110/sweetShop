@@ -7,15 +7,15 @@ const { dessert } = Astro.props;
 ---
 
 <article>
+  <img class="love-icon" src="/images/favorite_border.png" alt="" />
+  <div class="handpicked">本日精選</div>
   <div class="img-wrapper">
-    <div class="handpicked">本日精選</div>
-    <img class="love-icon" src="/images/favorite_border.png" alt="" />
     <img class="dessert-img" src={`/images/${dessert.image}`} alt="" />
-    <div class="menu">
-      <p>{dessert.name}</p>
-      <p>NT$ {dessert.price}</p>
-      <a href="#">加入購物車</a>
-    </div>
+  </div>
+  <div class="menu">
+    <p class="name">{dessert.name}</p>
+    <p class="price">NT${dessert.price}</p>
+    <a href="#">加入購物車</a>
   </div>
 </article>
 
@@ -23,26 +23,36 @@ const { dessert } = Astro.props;
   article {
     display: flex;
     flex-direction: column;
+    position: relative;
   }
   .img-wrapper {
     overflow: hidden;
     position: relative;
-    max-width: 300px;
+    width: 100%;
+    aspect-ratio: 1;
   }
   .dessert-img {
-    max-width: 100%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    line-height: 0;
   }
   .handpicked {
     writing-mode: vertical-rl;
+    z-index: 10;
     background: var(--bg-dark);
     color: var(--secondary);
     width: 2.25rem;
-    padding: 0.625rem;
+    line-height: 2.25rem;
+    padding: 0.625rem 0;
     position: absolute;
     left: 1.25rem;
   }
   .love-icon {
     position: absolute;
+    z-index: 10;
     right: 22px;
     top: 19px;
   }
@@ -53,9 +63,16 @@ const { dessert } = Astro.props;
     text-align: center;
     font-size: 1.25rem;
     color: var(--bg-dark);
-    border: 1px solid #eaf0ed;
-    p {
-      padding: 0;
+    .name,
+    .price {
+      height: 3.75rem;
+      line-height: 3.75rem;
+      border: 1px solid #eaf0ed;
+      border-block: 0;
+      margin: 0;
+    }
+    .price {
+      border-left: none;
     }
   }
   a {
