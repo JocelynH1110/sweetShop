@@ -8,11 +8,15 @@ const { dessert } = Astro.props;
 
 <article>
   <div class="img-wrapper">
-    <img src="/images/p-1.png" alt="" />
-    <p>名字{dessert.name}</p>
-    <p>NT$ {dessert.price}</p>
+    <div class="handpicked">本日精選</div>
+    <img class="love-icon" src="/images/favorite_border.png" alt="" />
+    <img class="dessert-img" src={`/images/${dessert.image}`} alt="" />
+    <div class="menu">
+      <p>{dessert.name}</p>
+      <p>NT$ {dessert.price}</p>
+      <a href="#">加入購物車</a>
+    </div>
   </div>
-  <a href="#">加入購物車</a>
 </article>
 
 <style>
@@ -22,5 +26,46 @@ const { dessert } = Astro.props;
   }
   .img-wrapper {
     overflow: hidden;
+    position: relative;
+    max-width: 300px;
+  }
+  .dessert-img {
+    max-width: 100%;
+  }
+  .handpicked {
+    writing-mode: vertical-rl;
+    background: var(--bg-dark);
+    color: var(--secondary);
+    width: 2.25rem;
+    padding: 0.625rem;
+    position: absolute;
+    left: 1.25rem;
+  }
+  .love-icon {
+    position: absolute;
+    right: 22px;
+    top: 19px;
+  }
+  .menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--bg-dark);
+    border: 1px solid #eaf0ed;
+    p {
+      padding: 0;
+    }
+  }
+  a {
+    text-decoration: none;
+    background: var(--bg-light);
+    color: var(--bg-dark);
+    grid-column: span 2;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 </style>
