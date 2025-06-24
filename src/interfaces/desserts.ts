@@ -1,5 +1,5 @@
 export interface Dessert {
   image: string;
   name: string;
-  price: string;
+  price: number;
 }

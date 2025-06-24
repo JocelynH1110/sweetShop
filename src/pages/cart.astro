@@ -1,11 +1,31 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { desserts } from "../data";
+import CartLineItem from "../components/CartLineItem.astro";
 ---
 
 <Layout title="Cart">
   <my-container>
     <div class="cart-list">
       <h2>您的購物車</h2>
+      <CartLineItem
+        productImageURL="/images/p-4.png"
+        productTitle="碼卡龍"
+        productBasePrice={450}
+        quantity={2}
+      />
+      <CartLineItem
+        productImageURL="/images/p-5.png"
+        productTitle="碼卡龍"
+        productBasePrice={450}
+        quantity={2}
+      />
+      <CartLineItem
+        productImageURL="/images/p-3.png"
+        productTitle="碼卡龍"
+        productBasePrice={450}
+        quantity={2}
+      />
     </div>
     <div class="summary">
       <h2>訂單摘要</h2>
@@ -26,8 +46,11 @@ import Layout from "../layouts/Layout.astro";
       gap: 1.25rem;
     }
     .cart-list {
-      background: var(--bg-light);
-      text-align: center;
+      h2 {
+        background: var(--bg-light);
+        text-align: center;
+        margin: 0;
+      }
       width: 38.75rem;
       color: #3f5d45;
     }
@@ -48,14 +71,21 @@ import Layout from "../layouts/Layout.astro";
     .summary-items {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      padding: 1rem;
+      padding: 0 1.437rem 1rem 1.125rem;
+      align-items: center;
       p {
         margin: 0;
+        font-weight: 300;
       }
       .total {
-        font-weight: bold;
+        font-weight: 600;
+        padding-top: 1rem;
       }
     }
+    .summary-items > *:nth-child(even) {
+      justify-self: end;
+    }
+
     .btn-payment {
       background: #ffe180;
       height: 4.06rem;

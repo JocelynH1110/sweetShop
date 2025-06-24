@@ -1,0 +1,20 @@
+---
+interface Props {
+  productTitle: string;
+  productBasePrice: number;
+  productImageURL: string;
+  quantity: number;
+}
+const { productTitle, productBasePrice, productImageURL, quantity } =
+  Astro.props;
+const total = productBasePrice * quantity;
+---
+
+<article>
+  <img src={productImageURL} alt="" />
+  <p>{productTitle}</p>
+  <p>{productBasePrice}</p>
+  <p>{quantity}</p>
+  <p>{total}</p>
+</article>
+<style></style>
