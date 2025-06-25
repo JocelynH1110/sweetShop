@@ -1,0 +1,54 @@
+---
+interface Props {
+  shipping: number;
+  subtotal: number;
+}
+const { shipping, subtotal } = Astro.props;
+const total = shipping + subtotal;
+---
+
+<article>
+  <div class="summary">
+    <div class="color"><h2>訂單摘要</h2></div>
+    <div class="summary-items">
+      <p>小計</p>
+      <p>NT$ {subtotal}</p>
+      <p>運費</p>
+      <p>NT$ {shipping}</p>
+      <p class="total">總計</p>
+      <p class="total">NT$ {total}</p>
+    </div>
+  </div>
+</article>
+<style>
+  .summary {
+    color: #8da291;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    .color {
+      background: var(--bg-light);
+    }
+    h2 {
+      text-align: center;
+    }
+  }
+  .summary-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem 1.25rem 1rem 1.25rem;
+    align-items: center;
+    border: 1px solid #eaf0ed;
+    p {
+      margin: 0;
+      font-weight: 300;
+    }
+    .total {
+      font-weight: 600;
+      padding-top: 1rem;
+    }
+  }
+  .summary-items > *:nth-child(even) {
+    justify-self: end;
+  }
+</style>
