@@ -1,9 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PaymentList from "../components/PaymentList.astro";
+import ShoppingList from "../components/ShoppingList.astro";
 ---
 
 <Layout title="Transport">
-  <PaymentList subtotal={2700} shipping={300} />
-  <style></style>
+  <my-container>
+    <PaymentList subtotal={2700} shipping={300} />
+    <div class="shopping-list">
+      <div class="label"><h2>購物清單</h2></div>
+      <ShoppingList
+        productImageURL="/images/p-4.png"
+        productTitle="焦糖蘋果派"
+        productBasePrice={450}
+        quantity={2}
+      />
+      <ShoppingList
+        productImageURL="/images/p-5.png"
+        productTitle="草莓波士頓"
+        productBasePrice={450}
+        quantity={2}
+      />
+      <ShoppingList
+        productImageURL="/images/p-3.png"
+        productTitle="頂級莓果派"
+        productBasePrice={450}
+        quantity={2}
+      />
+    </div>
+  </my-container>
 </Layout>
+<style>
+
+  .label {
+    background: #eaf0ed;
+    width:18.75rem;
+    height:4.06rem;
+    h2 {
+      text-align: center;
+      color: #8da291;
+  }
+</style>
