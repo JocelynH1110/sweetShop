@@ -62,7 +62,7 @@ import ShoppingList from "../components/ShoppingList.astro";
           />
         </div>
       </form>
-      <button class="btn-next">下一步</button>
+      <button class="btn-next"><a href="/invoice">下一步</a></button>
     </div>
     <div>
       <PaymentList subtotal={2700} shipping={300} />
@@ -233,8 +233,11 @@ import ShoppingList from "../components/ShoppingList.astro";
     height: 4.06rem;
     bottom: 0;
     font-size: 1.5rem;
-    color: #3f5d45;
-    font-weight: bold;
+    a {
+      text-decoration: none;
+      color: #3f5d45;
+      font-weight: bold;
+    }
   }
 
   .label {

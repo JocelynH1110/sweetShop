@@ -51,7 +51,7 @@ import ShoppingList from "../components/ShoppingList.astro";
           <input type="text" placeholder="幸福路 520 號" />
         </div>
       </form>
-      <button class="btn-next">下一步</button>
+      <button class="btn-next"><a href="/payment">下一步</a></button>
     </div>
     <div>
       <PaymentList subtotal={2700} shipping={300} />
@@ -117,25 +117,27 @@ import ShoppingList from "../components/ShoppingList.astro";
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 1px solid #8da291;
+    border: 1px solid #eaf0ed;
     display: flex;
     align-items: center;
     justify-content: center;
     .step {
-      background-color: #8da291;
+      background-color: #eaf0ed;
+      width: 0.875rem;
+      height: 0.875rem;
     }
   }
   .step {
-    width: 0.875rem;
-    height: 0.875rem;
+    width: 1.25rem;
+    height: 1.25rem;
     border-radius: 50%;
     background-color: #3f5d45;
-    border: 1px solid #8da291;
+    border: 1px solid #eaf0ed;
   }
   .line {
     width: 4.25rem;
     height: 1px;
-    background: #8da291;
+    background: #eaf0ed;
   }
 
   /*表格*/
@@ -156,6 +158,7 @@ import ShoppingList from "../components/ShoppingList.astro";
     }
     input {
       margin-bottom: 0.5rem;
+      background: #eaf0ed;
     }
   }
   .form-group.full-width {
@@ -187,9 +190,12 @@ import ShoppingList from "../components/ShoppingList.astro";
     width: 100%;
     height: 4.06rem;
     bottom: 0;
-    font-size: 1.5rem;
-    color: #3f5d45;
-    font-weight: bold;
+    a {
+      text-decoration: none;
+      color: #3f5d45;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
   }
 
   .label {
