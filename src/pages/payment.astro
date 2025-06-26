@@ -1,0 +1,252 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PaymentList from "../components/PaymentList.astro";
+import ShoppingList from "../components/ShoppingList.astro";
+---
+
+<Layout title="Payment">
+  <my-container>
+    <div class="payment-form">
+      <div class="form-header">
+        <h1>付款</h1>
+        <div class="step-guide">
+          <span class="step-accepted"
+            ><img src="/images/check.svg" alt="" /></span
+          >
+          <span class="line"></span>
+          <span class="step-active"><span class="step"></span></span>
+          <span class="line"></span>
+          <span class="step"></span>
+        </div>
+      </div>
+
+      <form>
+        <div class="form-group full-width">
+          <label for="phone">信用卡卡號</label>
+          <input
+            type="text"
+            id="phone"
+            maxlength="19"
+            inputmode="numeric"
+            placeholder="9012-3456-7890-1234"
+          />
+          <img src="/images/credit_card.svg" alt="credit-card" />
+        </div>
+        <div class="form-group name">
+          <label for="family-name">持卡人姓名</label>
+          <input type="text" id="family-name" placeholder="王" />
+          <input type="text" id="name" placeholder="小明" />
+        </div>
+
+        <div class="form-group full-width">
+          <label for="city">有效期限</label>
+          <div class="address-group">
+            <select id="city">
+              <option value="" disabled selected>月</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+            <select id="city">
+              <option value="" disabled selected>年</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+            </select>
+          </div>
+          <label for="ccv">背面末三碼</label>
+          <input
+            type="password"
+            id="ccv"
+            maxlength="3"
+            inputmode="numeric"
+            placeholder="123"
+          />
+        </div>
+      </form>
+      <button class="btn-next">下一步</button>
+    </div>
+    <div>
+      <PaymentList subtotal={2700} shipping={300} />
+    </div>
+
+    <div class="shopping-list">
+      <div class="label"><h2>購物清單</h2></div>
+      <ShoppingList
+        productImageURL="/images/p-4.png"
+        productTitle="焦糖蘋果派"
+        productBasePrice={450}
+        quantity={2}
+      />
+      <ShoppingList
+        productImageURL="/images/p-5.png"
+        productTitle="草莓波士頓"
+        productBasePrice={450}
+        quantity={2}
+      />
+      <ShoppingList
+        productImageURL="/images/p-3.png"
+        productTitle="頂級莓果派"
+        productBasePrice={450}
+        quantity={2}
+      />
+    </div>
+  </my-container>
+</Layout>
+
+<style>
+  my-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 7.625rem 4.06rem 7.625rem;
+    gap: 1.25rem;
+  }
+  .payment-form {
+    width: 28.75rem;
+    height: 38.81rem;
+    background: #3f5d45;
+    grid-row: span 2;
+    position: relative;
+    color: #eaf0ed;
+    justify-self: end;
+  }
+
+  .form-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.875rem 2.5rem;
+    color: #eaf0ed;
+    h1 {
+      margin: 0;
+    }
+  }
+
+  /*進度條*/
+  .step-guide {
+    display: flex;
+    align-items: center;
+  }
+  .step-accepted {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #eaf0ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 100%;
+    }
+  }
+  .step-active {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 1px solid #eaf0ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .step {
+      background-color: #eaf0ed;
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+  }
+  .step {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background-color: #3f5d45;
+    border: 1px solid #eaf0ed;
+  }
+  .line {
+    width: 4.25rem;
+    height: 1px;
+    background-color: #eaf0ed;
+  }
+
+  /*表格*/
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 2.5rem 1.875rem;
+    gap: 0.5rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 186px;
+    font-size: 1.25rem;
+    label {
+      margin: 0 0 0.5rem 0;
+    }
+    input {
+      margin-bottom: 0.5rem;
+    }
+  }
+  .form-group.full-width {
+    width: 100%;
+    position: relative;
+    img {
+      position: absolute;
+      left: 21rem;
+      bottom: 1.6rem;
+      z-index: 3;
+    }
+  }
+  .form-group.name {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    label {
+      grid-column: span 2;
+      margin-bottom: 0;
+    }
+    input {
+      width: 11.625rem;
+    }
+  }
+  .address-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    select {
+      flex: 1;
+      color: #8da291;
+    }
+  }
+  input::placeholder {
+    color: #8da291;
+    background: #eaf0ed;
+  }
+  input,
+  select {
+    border: none;
+    font-size: 1rem;
+    padding: 1rem;
+    height: 3.5rem;
+    background: #eaf0ed;
+  }
+  .btn-next {
+    background: #ffe180;
+    border: none;
+    position: absolute;
+    width: 100%;
+    height: 4.06rem;
+    bottom: 0;
+    font-size: 1.5rem;
+    color: #3f5d45;
+    font-weight: bold;
+  }
+
+  .label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eaf0ed;
+    width: 18.75rem;
+    height: 4.06rem;
+    h2 {
+      color: #8da291;
+      margin: 0;
+    }
+  }
+</style>
