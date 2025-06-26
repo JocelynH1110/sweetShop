@@ -1,0 +1,88 @@
+---
+import type { Dessert } from "../interfaces";
+interface Props {
+  dessert: Dessert;
+}
+const { dessert } = Astro.props;
+---
+
+<article>
+  <img class="love-icon" src="/images/favorite_border.png" alt="" />
+  <div class="handpicked">本日精選</div>
+  <div class="img-wrapper">
+    <img class="dessert-img" src={`/images/${dessert.image}`} alt="" />
+  </div>
+  <div class="menu">
+    <p class="name">{dessert.name}</p>
+    <p class="price">NT${dessert.price}</p>
+    <a href="#">加入購物車</a>
+  </div>
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .img-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+  .dessert-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    line-height: 0;
+  }
+  .handpicked {
+    writing-mode: vertical-rl;
+    z-index: 10;
+    background: var(--bg-dark);
+    color: var(--secondary);
+    width: 2.25rem;
+    line-height: 2.25rem;
+    padding: 0.625rem 0;
+    position: absolute;
+    left: 1.25rem;
+  }
+  .love-icon {
+    position: absolute;
+    z-index: 10;
+    right: 22px;
+    top: 19px;
+  }
+  .menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--bg-dark);
+    .name,
+    .price {
+      height: 3.75rem;
+      line-height: 3.75rem;
+      border: 1px solid #eaf0ed;
+      border-block: 0;
+      margin: 0;
+    }
+    .price {
+      border-left: none;
+    }
+  }
+  a {
+    text-decoration: none;
+    background: var(--bg-light);
+    color: var(--bg-dark);
+    grid-column: span 2;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+</style>

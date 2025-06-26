@@ -1,6 +1,8 @@
 @use "./_vars";
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -13,10 +15,14 @@
   --tertiary: #8da291;
   --botton: #ffe180;
   --bottom-bg: var(--bottom);
-  --text-light:#EAF0ED;
-  --text-color:var(--text-light);
-  --text-dark:#3F5D45;
-  --text-colcr:var(--text-dark);
+  --bg-light: #eaf0ed;
+  --green-light: var(--bg-light);
+  --bg-dark: #3f5d45;
+  --green-dark: var(--bg-dark);
+  --text-light: #eaf0ed;
+  --text-color: var(--text-light);
+  --text-dark: #3f5d45;
+  --text-colcr: var(--text-dark);
 }
 
 html,
