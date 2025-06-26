@@ -53,38 +53,40 @@ import ShoppingList from "../components/ShoppingList.astro";
       </form>
       <button class="btn-next">下一步</button>
     </div>
+    <div>
+      <PaymentList subtotal={2700} shipping={300} />
+    </div>
+
+    <div class="shopping-list">
+      <div class="label"><h2>購物清單</h2></div>
+      <ShoppingList
+        productImageURL="/images/p-4.png"
+        productTitle="焦糖蘋果派"
+        productBasePrice={450}
+        quantity={2}
+      />
+      <ShoppingList
+        productImageURL="/images/p-5.png"
+        productTitle="草莓波士頓"
+        productBasePrice={450}
+        quantity={2}
+      />
+      <ShoppingList
+        productImageURL="/images/p-3.png"
+        productTitle="頂級莓果派"
+        productBasePrice={450}
+        quantity={2}
+      />
+    </div>
   </my-container>
-
-  <PaymentList subtotal={2700} shipping={300} />
-
-  <div class="shopping-list">
-    <div class="label"><h2>購物清單</h2></div>
-    <ShoppingList
-      productImageURL="/images/p-4.png"
-      productTitle="焦糖蘋果派"
-      productBasePrice={450}
-      quantity={2}
-    />
-    <ShoppingList
-      productImageURL="/images/p-5.png"
-      productTitle="草莓波士頓"
-      productBasePrice={450}
-      quantity={2}
-    />
-    <ShoppingList
-      productImageURL="/images/p-3.png"
-      productTitle="頂級莓果派"
-      productBasePrice={450}
-      quantity={2}
-    />
-  </div>
 </Layout>
 
 <style>
   my-container {
     display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
     margin: 0 7.625rem 4.06rem 7.625rem;
+    gap: 1.25rem;
   }
   .shipping-form {
     width: 460px;
@@ -93,6 +95,7 @@ import ShoppingList from "../components/ShoppingList.astro";
     grid-row: span 2;
     position: relative;
     color: #eaf0ed;
+    justify-self: end;
   }
 
   .form-header {
@@ -189,11 +192,13 @@ import ShoppingList from "../components/ShoppingList.astro";
   }
 
   .label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #eaf0ed;
     width: 18.75rem;
     height: 4.06rem;
     h2 {
-      text-align: center;
       color: #8da291;
       margin: 0;
     }
