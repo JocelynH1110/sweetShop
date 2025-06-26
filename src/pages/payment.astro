@@ -22,10 +22,10 @@ import ShoppingList from "../components/ShoppingList.astro";
 
       <form>
         <div class="form-group full-width">
-          <label for="phone">信用卡卡號</label>
+          <label for="card-num">信用卡卡號</label>
           <input
             type="text"
-            id="phone"
+            id="card-num"
             maxlength="19"
             inputmode="numeric"
             placeholder="9012-3456-7890-1234"
@@ -39,14 +39,14 @@ import ShoppingList from "../components/ShoppingList.astro";
         </div>
 
         <div class="form-group full-width">
-          <label for="city">有效期限</label>
+          <label for="date">有效期限</label>
           <div class="address-group">
-            <select id="city">
+            <select id="date">
               <option value="" disabled selected>月</option>
               <option value="1">1</option>
               <option value="2">2</option>
             </select>
-            <select id="city">
+            <select id="date">
               <option value="" disabled selected>年</option>
               <option value="2025">2025</option>
               <option value="2024">2024</option>
@@ -116,6 +116,7 @@ import ShoppingList from "../components/ShoppingList.astro";
     color: #eaf0ed;
     h1 {
       margin: 0;
+      font-size: 2.25rem;
     }
   }
 
