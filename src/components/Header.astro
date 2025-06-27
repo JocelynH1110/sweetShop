@@ -1,12 +1,12 @@
+---
+import { baseURL } from "@/config";
+---
+
 <header>
   <my-container>
     <div class="icon">
-      <img src={Astro.url + "/images/logo-1000x1000.svg"} alt="logo" />
-      <img
-        class="logotype"
-        src={Astro.url + "/images/logotype.svg"}
-        alt="logo"
-      />
+      <img src={baseURL + "/images/logo-1000x1000.svg"} alt="logo" />
+      <img class="logotype" src={baseURL + "/images/logotype.svg"} alt="logo" />
     </div>
     <div class="navbar">
       <ul>
@@ -19,7 +19,7 @@
         </li><li>
           <img
             class="cartlogo"
-            src={Astro.url + "/images/shopping_cart.png"}
+            src={baseURL + "/images/shopping_cart.png"}
             alt=""
           />
         </li>

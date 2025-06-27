@@ -1,11 +1,5 @@
 <script lang="ts">
-  import Counter from "./Counter.svelte";
-
-  interface Props {
-    baseURL: string;
-  }
-
-  const { baseURL }: Props = $props();
+  import { baseURL } from "@/config";
 </script>
 
 <footer>
