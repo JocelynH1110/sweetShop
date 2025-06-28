@@ -26,8 +26,12 @@
         <p>800 高雄市新興區幸福路 520 號</p>
       </div>
       <div class="social">
-        <img src="{baseURL}/images/ic-line@.svg" alt="line" />
-        <img src="{baseURL}/images/ic-facebook.svg" alt="facebook" />
+        <a href="https://www.instagram.com"
+          ><img src="{baseURL}/images/ic-line@.svg" alt="line" /></a
+        >
+        <a href="/www.facebook.com"
+          ><img src="{baseURL}/images/ic-facebook.svg" alt="facebook" /></a
+        >
       </div>
       <p class="copyright">© 2018 Sweetaste* All Rights Reserved</p>
     </div>
