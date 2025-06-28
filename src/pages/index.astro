@@ -1,4 +1,5 @@
 ---
+import { baseURL } from "@/config";
 import Layout from "../layouts/Layout.astro";
 import { desserts } from "../data";
 import DessertCard from "../components/DessertCard.astro";
@@ -37,12 +38,12 @@ const featureProducts = desserts.slice(0, 3);
     <div class="topic-1">
       <picture>
         <source
-          srcset="images/sm-橫式-為什麼選擇了做甜點.svg"
+          srcset={baseURL + "images/sm-橫式-為什麼選擇了做甜點.svg"}
           media="(max-width:375px)"
         />
         <img
           class="slogan-1"
-          src="/images/lg-為什麼選擇了做甜點.svg"
+          src={baseURL + "/images/lg-為什麼選擇了做甜點.svg"}
           alt="為什麼選擇了做甜點"
         />
       </picture>
@@ -58,7 +59,7 @@ const featureProducts = desserts.slice(0, 3);
     <div class="topic-2">
       <img
         class="slogan-2"
-        src="/images/lg-為什麼一定要吃甜點.svg"
+        src={baseURL + "/images/lg-為什麼一定要吃甜點.svg"}
         alt="pic-right"
       />
       <div class="content-2">
@@ -71,7 +72,10 @@ const featureProducts = desserts.slice(0, 3);
     </div>
 
     <div class="decor">
-      <img src="/images/lg-想吃甜點是不需要理由的.svg" alt="slogan" />
+      <img
+        src={baseURL + "/images/lg-想吃甜點是不需要理由的.svg"}
+        alt="slogan"
+      />
     </div>
 
     <!-- 指定印出的產品卡片數量-->

@@ -1,4 +1,5 @@
 ---
+import { baseURL } from "@/config";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -7,24 +8,25 @@ import Layout from "../layouts/Layout.astro";
     <div class="success">
       <div class="step-guide">
         <span class="step-accepted"
-          ><img src="/images/check_light.svg" alt="" /></span
+          ><img src={baseURL + "/images/check_light.svg"} alt="" /></span
         >
         <span class="line"></span>
         <span class="step-accepted"
-          ><img src="/images/check_light.svg" alt="" /></span
+          ><img src={baseURL + "/images/check_light.svg"} alt="" /></span
         >
         <span class="line"></span>
         <span class="step-accepted"
-          ><img src="/images/check_light.svg" alt="" /></span
+          ><img src={baseURL + "/images/check_light.svg"} alt="" /></span
         >
       </div>
-      <img class="paied" src="/images/lg-付款成功.svg" alt="" />
+      <img class="paied" src={baseURL + "/images/lg-付款成功.svg"} alt="" />
       <button class="btn-shopping"><a href="/">繼續逛逛</a></button>
     </div>
     <img class="success-bg" src="https://bit.ly/2P7GhNd" alt="" />
   </my-container>
 
-  <style>
+  <style lang="scss">
+    @use "../styles/_vars";
     .success-bg {
       padding: 0 1.125rem 3.75rem;
       width: 100%;

@@ -1,4 +1,5 @@
 ---
+import { baseURL } from "@/config";
 import Layout from "../layouts/Layout.astro";
 import CartLineItem from "../components/CartLineItem.astro";
 ---
@@ -8,19 +9,19 @@ import CartLineItem from "../components/CartLineItem.astro";
     <div class="cart-list">
       <h2>您的購物車</h2>
       <CartLineItem
-        productImageURL="/images/p-4.png"
+        productImageURL={baseURL + "/images/p-4.png"}
         productTitle="焦糖蘋果派"
         productBasePrice={450}
         quantity={2}
       />
       <CartLineItem
-        productImageURL="/images/p-5.png"
+        productImageURL={baseURL + "/images/p-5.png"}
         productTitle="草莓波士頓"
         productBasePrice={450}
         quantity={2}
       />
       <CartLineItem
-        productImageURL="/images/p-3.png"
+        productImageURL={baseURL + "/images/p-3.png"}
         productTitle="頂級莓果派"
         productBasePrice={450}
         quantity={2}
@@ -36,10 +37,12 @@ import CartLineItem from "../components/CartLineItem.astro";
         <p class="total">總計</p>
         <p class="total">NT$ 3,000</p>
       </div>
-      <div class="btn-payment"><a href="#">結帳</a></div>
+      <div class="btn-payment"><a href="/payment">結帳</a></div>
     </div>
   </my-container>
-  <style>
+
+  <style lang="scss">
+    @use "../styles/_vars";
     my-container {
       display: flex;
       gap: 1.25rem;
@@ -93,9 +96,9 @@ import CartLineItem from "../components/CartLineItem.astro";
     }
 
     .btn-payment {
+      display: flex;
       background: #ffe180;
       height: 4.06rem;
-      display: flex;
       justify-content: center;
       align-items: center;
       a {

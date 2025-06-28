@@ -1,4 +1,5 @@
 ---
+import { baseURL } from "@/config";
 import Layout from "../layouts/Layout.astro";
 import PaymentList from "../components/PaymentList.astro";
 import ShoppingList from "../components/ShoppingList.astro";
@@ -11,18 +12,18 @@ import ShoppingList from "../components/ShoppingList.astro";
         <h1>發票</h1>
         <div class="step-guide">
           <span class="step-accepted"
-            ><img src="/images/check.svg" alt="" /></span
+            ><img src={baseURL + "/images/check.svg"} alt="" /></span
           >
           <span class="line"></span>
           <span class="step-accepted"
-            ><img src="/images/check.svg" alt="" /></span
+            ><img src={baseURL + "/images/check.svg"} alt="" /></span
           >
           <span class="line"></span>
           <span class="step-active"><span class="step"></span></span>
         </div>
       </div>
 
-      <form>
+      <form action="/success">
         <div class="btn-invoice">
           <button class="e-invoice"><a href="/invoice">電子發票</a></button>
           <button class="paper-invoice"
@@ -42,9 +43,8 @@ import ShoppingList from "../components/ShoppingList.astro";
             placeholder="12345678"
           />
         </div>
+        <button class="btn-next" type="submit">確認結帳</button>
       </form>
-
-      <button class="btn-next"><a href="/success">確認結帳</a></button>
     </div>
 
     <div>
@@ -74,7 +74,8 @@ import ShoppingList from "../components/ShoppingList.astro";
     </div>
   </my-container>
 
-  <style>
+  <style lang="scss">
+    @use "../styles/_vars";
     my-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -237,12 +238,11 @@ import ShoppingList from "../components/ShoppingList.astro";
       width: 100%;
       height: 4.06rem;
       bottom: 0;
+      left: 0;
       font-size: 1.5rem;
-      a {
-        text-decoration: none;
-        color: #3f5d45;
-        font-weight: bold;
-      }
+      color: #3f5d45;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     .label {

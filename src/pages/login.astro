@@ -1,4 +1,5 @@
 ---
+import { baseURL } from "@/config";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -11,11 +12,11 @@ import Layout from "../layouts/Layout.astro";
 
         <div class="input-container">
           <div class="info">
-            <img src="/images/icon-person.svg" alt="" />
+            <img src={baseURL + "/images/icon-person.svg"} alt="" />
             <input type="email" placeholder="電子信箱/手機號碼" />
           </div>
           <div class="info">
-            <img src="/images/ic-key.svg" alt="" />
+            <img src={baseURL + "/images/ic-key.svg"} alt="" />
             <input type="password" placeholder="請輸入使用者密碼" />
           </div>
         </div>
@@ -29,112 +30,116 @@ import Layout from "../layouts/Layout.astro";
       <div class="social-media">
         <p>—— 連結社群帳號 ——</p>
         <a href="https://www.facebook.com/">
-          <img src={"/images/ic-facebook-logotype.svg"} alt="facebook" /></a
+          <img
+            src={baseURL + "/images/ic-facebook-logotype.svg"}
+            alt="facebook"
+          /></a
         >
         <a href="https://www.google.com/">
-          <img src={"/images/ic-google.svg"} alt="google" />
+          <img src={baseURL + "/images/ic-google.svg"} alt="google" />
         </a>
         <a
           href="https://login.yahoo.com/?.src=twfp&.intl=tw&.lang=zh-Hant-TW&.done=https://tw.yahoo.com&activity=uh-signin"
-          ><img src={"/images/ic-yahoo.svg"} alt="yahoo" />
+          ><img src={baseURL + "/images/ic-yahoo.svg"} alt="yahoo" />
         </a>
       </div>
     </section>
+  </my-container>
 
-    <style>
-      section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin: 0 7.625rem 3.75rem 7.625rem;
-      }
-      .identity {
-        justify-self: right;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        background: var(--primary);
-        color: var(--text-light);
-        width: 24.4rem;
-        height: 23.75rem;
-      }
-      h1 {
-        font-size: 2.25rem;
-      }
-      .input-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        overflow: hidden;
-        input {
-          border: none;
-          width: 20.6rem;
-          height: 3.5rem;
-          font-size: 1rem;
-          background: var(--secondary);
-          color: #8da291;
-          padding-left: 4rem;
-        }
-        img {
-          position: absolute;
-          width: 1.5rem;
-          left: 1.67rem;
-          top: 25%;
-          right: 50%;
-          transform: translateY(-50%);
-          transform: translateX(-30%);
-        }
-      }
-      .info {
-        position: relative;
-      }
-      input::placeholder {
-        color: #8da291;
-        background: #eaf0ed;
-      }
-      .checkbox {
-        display: flex;
-        align-self: flex-start;
-        margin: 1rem 0.5rem 1.56rem 1.875rem;
-        font-size: 1rem;
-        font-weight: bold;
-      }
-      .login-btn {
-        background: #ffe180;
-        color: var(--primary);
-        width: 24.4rem;
-        height: 65px;
+  <style lang="scss">
+    @use "../styles/_vars";
+    section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 0 7.625rem 3.75rem 7.625rem;
+    }
+    .identity {
+      justify-self: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--primary);
+      color: var(--text-light);
+      width: 24.4rem;
+      height: 23.75rem;
+    }
+    h1 {
+      font-size: 2.25rem;
+    }
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      overflow: hidden;
+      input {
         border: none;
-        padding: 0;
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-
-      .social-media {
-        align-self: center;
-        font-size: 1.5rem;
-        color: #8da291;
-        display: flex;
-        flex-direction: column;
-        background: var(--secondary);
-        align-items: center;
-        width: 24.4rem;
-        height: 21.9rem;
-        gap: 1rem;
-      }
-      a {
-        background: #ffffff;
-        width: 20.38rem;
+        width: 20.6rem;
         height: 3.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
+        font-size: 1rem;
+        background: var(--secondary);
+        color: #8da291;
+        padding-left: 4rem;
       }
       img {
-        width: 6.8rem;
+        position: absolute;
+        width: 1.5rem;
+        left: 1.67rem;
+        top: 25%;
+        right: 50%;
+        transform: translateY(-50%);
+        transform: translateX(-30%);
       }
-    </style>
-  </my-container>
+    }
+    .info {
+      position: relative;
+    }
+    input::placeholder {
+      color: #8da291;
+      background: #eaf0ed;
+    }
+    .checkbox {
+      display: flex;
+      align-self: flex-start;
+      margin: 1rem 0.5rem 1.56rem 1.875rem;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .login-btn {
+      background: #ffe180;
+      color: var(--primary);
+      width: 24.4rem;
+      height: 65px;
+      border: none;
+      padding: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .social-media {
+      align-self: center;
+      font-size: 1.5rem;
+      color: #8da291;
+      display: flex;
+      flex-direction: column;
+      background: var(--secondary);
+      align-items: center;
+      width: 24.4rem;
+      height: 21.9rem;
+      gap: 1rem;
+    }
+    a {
+      background: #ffffff;
+      width: 20.38rem;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    img {
+      width: 6.8rem;
+    }
+  </style>
 </Layout>

@@ -1,4 +1,5 @@
 ---
+import { baseURL } from "@/config";
 import Layout from "../layouts/Layout.astro";
 import PaymentList from "../components/PaymentList.astro";
 import ShoppingList from "../components/ShoppingList.astro";
@@ -80,7 +81,8 @@ import ShoppingList from "../components/ShoppingList.astro";
     </div>
   </my-container>
 
-  <style>
+  <style lang="scss">
+    @use "../styles/_vars";
     my-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
