@@ -4,24 +4,26 @@ import { baseURL } from "@/config";
 
 <header>
   <my-container>
-    <div class="icon">
+    <a class="icon" href={baseURL + "/"}>
       <img src={baseURL + "/images/logo-1000x1000.svg"} alt="logo" />
       <img class="logotype" src={baseURL + "/images/logotype.svg"} alt="logo" />
-    </div>
+    </a>
     <div class="navbar">
       <ul>
         <li>
-          <a href={baseURL}>首頁</a>
+          <a href={baseURL + "/"}>首頁</a>
         </li><li>
           <a href={baseURL + "/products"}>甜點</a>
         </li><li>
           <a href={baseURL + "/login"}>登入</a>
         </li><li>
-          <img
-            class="cartlogo"
-            src={baseURL + "/images/shopping_cart.png"}
-            alt=""
-          />
+          <a href={baseURL + "/cart"}>
+            <img
+              class="cartlogo"
+              src={baseURL + "/images/shopping_cart.png"}
+              alt="購物車"
+            />
+          </a>
         </li>
       </ul>
     </div>

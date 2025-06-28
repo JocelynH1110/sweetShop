@@ -8,23 +8,27 @@ const featureProducts = desserts.slice(0, 3);
 
 <Layout title="Hello">
   <my-container>
-    <img class="banner" src="https://bit.ly/2OhbMHr" alt="pic-1" />
+    <div class="banner">
+      <div class="img-wrapper">
+        <img src="https://bit.ly/2OhbMHr" alt="pic-1" />
+      </div>
 
-    <!--商品連結-->
-    <div class="products-link">
-      <div class="link link-1">
-        <div class="forsted-glass">
-          <a href="/products">本日精選</a>
+      <!--商品連結-->
+      <div class="products-link">
+        <div class="link link-1">
+          <div class="forsted-glass">
+            <a href="/products">本日精選</a>
+          </div>
         </div>
-      </div>
-      <div class="link link-2">
-        <div class="forsted-glass">
-          <a href="/products">人氣推薦</a>
+        <div class="link link-2">
+          <div class="forsted-glass">
+            <a href="/products">人氣推薦</a>
+          </div>
         </div>
-      </div>
-      <div class="link link-3">
-        <div class="forsted-glass">
-          <a href="/products">新品上市</a>
+        <div class="link link-3">
+          <div class="forsted-glass">
+            <a href="/products">新品上市</a>
+          </div>
         </div>
       </div>
     </div>
@@ -72,14 +76,31 @@ const featureProducts = desserts.slice(0, 3);
   <style>
     .banner {
       width: 100%;
+      height: 50vh;
       position: relative;
+
+      img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
+
+    .img-wrapper {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
     .products-link {
       display: flex;
       gap: 0.1rem;
       position: absolute;
-      bottom: 15%;
-      left: 18%;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(50%);
     }
     .link {
       position: relative;
@@ -118,6 +139,11 @@ const featureProducts = desserts.slice(0, 3);
       background-color: rgba(63, 93, 69, 0.7);
       z-index: 0;
       backdrop-filter: blur(5px);
+
+      &,
+      a {
+        transition: 0.2s ease-in-out;
+      }
     }
 
     /* 連結 hover*/
@@ -190,9 +216,10 @@ const featureProducts = desserts.slice(0, 3);
 
     /*商品載入*/
     .card {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
       gap: 1.25rem;
-      margin-top: 5rem;
+      margin-block: 5rem;
     }
   </style>
 </Layout>

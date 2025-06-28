@@ -23,6 +23,7 @@
   --text-color: var(--text-light);
   --text-dark: #3f5d45;
   --text-colcr: var(--text-dark);
+  --container-width: #{vars.$container-width};
 }
 
 html,
