@@ -34,7 +34,8 @@
   </my-container>
 </footer>
 
-<style>
+<style lang="scss">
+  @use "../styles/_vars";
   footer {
     background: var(--footer-bg);
   }

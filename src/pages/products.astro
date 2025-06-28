@@ -1,4 +1,5 @@
 ---
+import { baseURL } from "@/config";
 import Layout from "../layouts/Layout.astro";
 import { desserts } from "../data";
 import DessertCard from "../components/DessertCard.astro";
@@ -6,16 +7,16 @@ import DessertCard from "../components/DessertCard.astro";
 
 <Layout title="Product">
   <my-container>
-    <img class="banner" src="/images/banner.png" alt="" />
+    <img class="banner" src={baseURL + "/images/banner.png"} alt="banner" />
 
     <div class="container">
       <section>
         <p>甜點類別</p>
         <ol>
-          <a href="#"><li>所有甜點</li></a>
-          <a href="#"><li>本日精選</li></a>
-          <a href="#"><li>人氣推薦</li></a>
-          <a href="#"><li>新品上市</li></a>
+          <a href="#"><li>所有甜點（48）</li></a>
+          <a href="#"><li>本日精選（10）</li></a>
+          <a href="#"><li>人氣推薦（26）</li></a>
+          <a href="#"><li>新品上市（12）</li></a>
         </ol>
       </section>
 
@@ -24,11 +25,15 @@ import DessertCard from "../components/DessertCard.astro";
       </div>
     </div>
     <div class="page">
-      <div><img src="/images/arrow_left.svg" alt="" /></div>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div><img src="/images/arrow_right.svg" alt="" /></div>
+      <a href="#"
+        ><img src={baseURL + "/images/arrow_left.svg"} alt="previous-page" /></a
+      >
+      <a href="#"><li>1</li></a>
+      <a href="#"><li>2</li></a>
+      <a href="#"><li>3</li></a>
+      <a href="#">
+        <img src={baseURL + "/images/arrow_right.svg"} alt="next-page" /></a
+      >
     </div>
   </my-container>
 
@@ -91,11 +96,18 @@ import DessertCard from "../components/DessertCard.astro";
       display: flex;
       justify-content: flex-end;
       margin-bottom: 3.75rem;
-      div {
+      margin-right: 45px;
+      a {
         border: 1px solid #eaf0ed;
         padding: 0.7rem 1.625rem;
         color: #3f5d45;
         font-size: 1.25rem;
+        text-decoration: none;
+        list-style-type: none;
+        &:hover {
+          background: #3f5d45;
+          color: #eaf0ed;
+        }
       }
     }
   </style>
