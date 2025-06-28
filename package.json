@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "git tag -d deploy; git tag deploy --no-sign; git push --force origin deploy"
   },
   "dependencies": {
     "@astrojs/svelte": "^7.1.0",

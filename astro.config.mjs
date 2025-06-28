@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 
 import svelte from "@astrojs/svelte";
+import path from "path";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -14,4 +15,12 @@ export default defineConfig({
   base: isProd ? "sweetShop" : undefined,
 
   integrations: [svelte()],
+
+  vite: {
+    resolve: {
+      alias: {
+        "@": path.resolve("./src"),
+      },
+    },
+  },
 });

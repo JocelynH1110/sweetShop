@@ -1,25 +1,25 @@
+---
+import { baseURL } from "@/config";
+---
+
 <header>
   <my-container>
     <div class="icon">
-      <img src={Astro.url + "/images/logo-1000x1000.svg"} alt="logo" />
-      <img
-        class="logotype"
-        src={Astro.url + "/images/logotype.svg"}
-        alt="logo"
-      />
+      <img src={baseURL + "/images/logo-1000x1000.svg"} alt="logo" />
+      <img class="logotype" src={baseURL + "/images/logotype.svg"} alt="logo" />
     </div>
     <div class="navbar">
       <ul>
         <li>
-          <a href="/">首頁</a>
+          <a href={baseURL}>首頁</a>
         </li><li>
-          <a href="/products">甜點</a>
+          <a href={baseURL + "/products"}>甜點</a>
         </li><li>
-          <a href="/login">登入</a>
+          <a href={baseURL + "/login"}>登入</a>
         </li><li>
           <img
             class="cartlogo"
-            src={Astro.url + "/images/shopping_cart.png"}
+            src={baseURL + "/images/shopping_cart.png"}
             alt=""
           />
         </li>
