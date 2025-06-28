@@ -21,7 +21,7 @@ import ShoppingList from "../components/ShoppingList.astro";
         </div>
       </div>
 
-      <form>
+      <form action="/invoice" method="post">
         <div class="form-group full-width">
           <label for="card-num">信用卡卡號</label>
           <input
@@ -62,8 +62,8 @@ import ShoppingList from "../components/ShoppingList.astro";
             placeholder="123"
           />
         </div>
+        <button class="btn-next">下一步</button>
       </form>
-      <button class="btn-next"><a href="/invoice">下一步</a></button>
     </div>
     <div>
       <PaymentList subtotal={2700} shipping={300} />
@@ -234,12 +234,11 @@ import ShoppingList from "../components/ShoppingList.astro";
       width: 100%;
       height: 4.06rem;
       bottom: 0;
+      left: 0;
       font-size: 1.5rem;
-      a {
-        text-decoration: none;
-        color: #3f5d45;
-        font-weight: bold;
-      }
+      color: #3f5d45;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     .label {
