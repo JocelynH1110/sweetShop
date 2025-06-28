@@ -1,5 +1,198 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { desserts } from "../data";
+import DessertCard from "../components/DessertCard.astro";
+
+const featureProducts = desserts.slice(0, 3);
 ---
 
-<Layout title="Hello" />
+<Layout title="Hello">
+  <my-container>
+    <img class="banner" src="https://bit.ly/2OhbMHr" alt="pic-1" />
+
+    <!--商品連結-->
+    <div class="products-link">
+      <div class="link link-1">
+        <div class="forsted-glass">
+          <a href="/products">本日精選</a>
+        </div>
+      </div>
+      <div class="link link-2">
+        <div class="forsted-glass">
+          <a href="/products">人氣推薦</a>
+        </div>
+      </div>
+      <div class="link link-3">
+        <div class="forsted-glass">
+          <a href="/products">新品上市</a>
+        </div>
+      </div>
+    </div>
+
+    <!--說明介紹-->
+    <div class="topic-1">
+      <img
+        class="slogan-1"
+        src="/images/lg-為什麼選擇了做甜點.svg"
+        alt="為什麼選擇了做甜點"
+      />
+      <div class="content-1">
+        <p>
+          青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。<br
+          />是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。
+        </p>
+      </div>
+      <img class="content-pic-1" src="https://bit.ly/2xPn7Eq" alt="pic-right" />
+    </div>
+
+    <div class="topic-2">
+      <img
+        class="slogan-2"
+        src="/images/lg-為什麼一定要吃甜點.svg"
+        alt="pic-right"
+      />
+      <div class="content-2">
+        <p>
+          青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。<br
+          />是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。
+        </p>
+      </div>
+      <img class="content-pic-2" src="https://bit.ly/2zzAQS4" alt="pic-left" />
+    </div>
+
+    <div class="decor">
+      <img src="/images/lg-想吃甜點是不需要理由的.svg" alt="slogan" />
+    </div>
+    <!-- 指定印出的產品卡片數量-->
+    <div class="card">
+      {featureProducts.map((dessert) => <DessertCard dessert={dessert} />)}
+    </div>
+  </my-container>
+
+  <style>
+    .banner {
+      width: 100%;
+      position: relative;
+    }
+    .products-link {
+      display: flex;
+      gap: 0.1rem;
+      position: absolute;
+      bottom: 15%;
+      left: 18%;
+    }
+    .link {
+      position: relative;
+      width: 16.25rem;
+      height: 16rem;
+      background-size: cover;
+      background-position: center;
+      color: #3f5d45;
+      writing-mode: vertical-rl;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 250px; /* 垂直置中 */
+      a {
+        display: block;
+        text-decoration: none;
+        color: #ffffff;
+      }
+    }
+
+    /*連結背景圖*/
+    .link-1 {
+      background-image: url("https://bit.ly/2R5tqwD");
+    }
+    .link-2 {
+      background-image: url("https://bit.ly/2Dwoxd7");
+    }
+    .link-3 {
+      background-image: url("https://bit.ly/2OUteif");
+    }
+
+    /*霧化遮罩*/
+    .forsted-glass {
+      position: absolute;
+      inset: 0; /*填滿父容器*/
+      background-color: rgba(63, 93, 69, 0.7);
+      z-index: 0;
+      backdrop-filter: blur(5px);
+    }
+
+    /* 連結 hover*/
+    .link:hover .forsted-glass {
+      background-color: rgba(255, 221, 128, 0.8);
+      backdrop-filter: blur(5px);
+      a {
+        color: #3f5d45;
+      }
+    }
+
+    /* 內文*/
+    .topic-1,
+    .topic-2 {
+      display: flex;
+      flex-direction: row-reverse;
+      background: #eaf0ed;
+      width: 100%;
+      height: 26.25rem;
+      margin: 15.43rem 0 6.56rem 0;
+      position: relative;
+    }
+    .topic-2 {
+      flex-direction: row;
+      margin-top: 6.56rem;
+    }
+
+    .content-2,
+    .content-1 {
+      writing-mode: vertical-rl;
+      margin: 3.5rem 0 3.5rem 3rem;
+      color: #8da291;
+      letter-spacing: 1px;
+      line-height: 3rem;
+    }
+    .content-1 {
+      margin-right: 18%;
+    }
+
+    .content-pic-1 {
+      width: 460px;
+      height: 460px;
+      position: absolute;
+      left: 5%;
+      top: -5%;
+    }
+    .content-pic-2 {
+      width: 460px;
+      height: 460px;
+      position: absolute;
+      right: 5%;
+      top: -5%;
+    }
+
+    .slogan-1,
+    .slogan-2 {
+      width: 89px;
+      position: absolute;
+      top: -5%;
+      right: 5%;
+    }
+    .slogan-2 {
+      left: 45%;
+    }
+    .decor {
+      width: 89px;
+      display: flex;
+      margin: 0 auto;
+    }
+
+    /*商品載入*/
+    .card {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 5rem;
+    }
+  </style>
+</Layout>
