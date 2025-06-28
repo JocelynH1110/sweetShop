@@ -67,6 +67,7 @@ const featureProducts = desserts.slice(0, 3);
     <div class="decor">
       <img src="/images/lg-想吃甜點是不需要理由的.svg" alt="slogan" />
     </div>
+
     <!-- 指定印出的產品卡片數量-->
     <div class="card">
       {featureProducts.map((dessert) => <DessertCard dessert={dessert} />)}
@@ -75,8 +76,7 @@ const featureProducts = desserts.slice(0, 3);
 
   <style>
     .banner {
-      width: 100%;
-      height: 50vh;
+      height: 57vh;
       position: relative;
 
       img {
