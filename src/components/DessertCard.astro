@@ -1,4 +1,5 @@
 ---
+import { baseURL } from "@/config";
 import type { Dessert } from "../interfaces";
 interface Props {
   dessert: Dessert;
@@ -10,12 +11,16 @@ const { dessert } = Astro.props;
   <img class="love-icon" src="/images/favorite_border.png" alt="" />
   <div class="handpicked">本日精選</div>
   <div class="img-wrapper">
-    <img class="dessert-img" src={`/images/${dessert.image}`} alt="" />
+    <img
+      class="dessert-img"
+      src={baseURL + `/images/${dessert.image}`}
+      alt=""
+    />
   </div>
   <div class="menu">
     <p class="name">{dessert.name}</p>
     <p class="price">NT${dessert.price}</p>
-    <a href="#">加入購物車</a>
+    <button type="button">加入購物車</button>
   </div>
 </article>
 
@@ -75,7 +80,7 @@ const { dessert } = Astro.props;
       border-left: none;
     }
   }
-  a {
+  button {
     text-decoration: none;
     background: var(--bg-light);
     color: var(--bg-dark);
@@ -84,5 +89,7 @@ const { dessert } = Astro.props;
     font-weight: bold;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    border: none;
+    cursor: pointer;
   }
 </style>
