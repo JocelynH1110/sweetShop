@@ -1,0 +1,86 @@
+---
+import { baseURL } from "@/config";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Success">
+  <my-container>
+    <div class="success">
+      <div class="step-guide">
+        <span class="step-accepted"
+          ><img src={baseURL + "/images/check_light.svg"} alt="" /></span
+        >
+        <span class="line"></span>
+        <span class="step-accepted"
+          ><img src={baseURL + "/images/check_light.svg"} alt="" /></span
+        >
+        <span class="line"></span>
+        <span class="step-accepted"
+          ><img src={baseURL + "/images/check_light.svg"} alt="" /></span
+        >
+      </div>
+      <img class="paied" src={baseURL + "/images/lg-付款成功.svg"} alt="" />
+      <button class="btn-shopping"><a href={baseURL + "/"}>繼續逛逛</a></button>
+    </div>
+    <img class="success-bg" src="https://bit.ly/2P7GhNd" alt="" />
+  </my-container>
+
+  <style lang="scss">
+    @use "../styles/_vars";
+    .success-bg {
+      padding: 0 1.125rem 3.75rem;
+      width: 100%;
+      position: relative;
+    }
+    .success {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -90%);
+    }
+    .paied {
+      width: 11.875rem;
+    }
+    .btn-shopping {
+      width: 18.75rem;
+      height: 4.06rem;
+      background: #ffe180;
+      border: none;
+      margin-top: 3.2rem;
+      a {
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: #3f5d45;
+        font-weight: bold;
+      }
+    }
+
+    /*進度條*/
+    .step-guide {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .step-accepted {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #3f5d45;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+      }
+    }
+    .line {
+      width: 4.15rem;
+      height: 1px;
+      background-color: #3f5d45;
+    }
+  </style>
+</Layout>

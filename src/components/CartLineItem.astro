@@ -1,0 +1,66 @@
+---
+import { baseURL } from "@/config";
+interface Props {
+  productTitle: string;
+  productBasePrice: number;
+  productImageURL: string;
+  quantity: number;
+}
+const { productTitle, productBasePrice, productImageURL, quantity } =
+  Astro.props;
+const total = productBasePrice * quantity;
+---
+
+<article>
+  <img class="product-img" src={productImageURL} alt="" />
+  <div class="item">
+    <p class="product-name">{productTitle}</p>
+    <p>NT$ {productBasePrice}</p>
+  </div>
+  <div class="amount">
+    <div>—</div>
+    <div>
+      <p>{quantity}</p>
+    </div>
+    <div>+</div>
+  </div>
+  <p>NT$ {total}</p>
+  <img src={baseURL + "/images/delete.svg"} alt="" />
+</article>
+
+<style>
+  article {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.06rem;
+    margin-bottom: -0.81rem;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eaf0ed;
+  }
+  .product-img {
+    width: 6.875rem;
+  }
+  .item {
+    p {
+      margin: 0;
+    }
+    .product-name {
+      font-size: 1.25rem;
+    }
+  }
+  .amount {
+    display: flex;
+    align-items: center;
+    div {
+      border: 1px solid #eaf0ed;
+      padding: 13px 19px;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  .amount > div:not(:last-child) {
+    border-right: none;
+  }
+</style>

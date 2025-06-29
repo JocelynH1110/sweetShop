@@ -1,29 +1,35 @@
+---
+import { baseURL } from "@/config";
+---
+
 <header>
   <my-container>
-    <div class="icon">
-      <img src={Astro.url + "/images/logo-1000x1000.svg"} alt="logo" />
-      <img
-        class="logotype"
-        src={Astro.url + "/images/logotype.svg"}
-        alt="logo"
-      />
-    </div>
+    <a class="icon" href={baseURL + "/"}>
+      <img src={baseURL + "/images/logo-1000x1000.svg"} alt="logo" />
+      <img class="logotype" src={baseURL + "/images/logotype.svg"} alt="logo" />
+    </a>
     <div class="navbar">
       <ul>
         <li>
-          <a href="#">首頁</a>
-          <a href="#">甜點</a>
-          <a href="#">登入</a>
-          <img
-            class="cartlogo"
-            src={Astro.url + "/images/shopping_cart.png"}
-            alt=""
-          />
+          <a href={baseURL + "/"}>首頁</a>
+        </li><li>
+          <a href={baseURL + "/products"}>甜點</a>
+        </li><li>
+          <a href={baseURL + "/login"}>登入</a>
+        </li><li>
+          <a href={baseURL + "/cart"}>
+            <img
+              class="cartlogo"
+              src={baseURL + "/images/shopping_cart.png"}
+              alt="購物車"
+            />
+          </a>
         </li>
       </ul>
     </div>
   </my-container>
 </header>
+
 <style lang="scss">
   @use "../styles/_vars";
   header {
@@ -39,7 +45,6 @@
   }
   img {
     width: 2.5rem;
-    margin-top: 1.875rem;
   }
   .logotype {
     width: 10.7rem;
@@ -51,11 +56,13 @@
     gap: 3.75rem;
     font-size: 1rem;
     margin: 0;
+    padding: 0;
+    height: 1.5rem;
+    line-height: 1.5rem;
   }
   a {
     color: #3f5d45;
     text-decoration: none;
-    margin-left: 2.75rem;
     &:visited,
     &:link,
     &:active {
@@ -64,6 +71,16 @@
   }
   .cartlogo {
     width: 1.5rem;
-    margin-left: 5rem;
+    height: auto;
+  }
+
+  .icon,
+  .navbar ul {
+    display: flex;
+    align-items: center;
+  }
+
+  li:has(.cartlogo) {
+    line-height: 0;
   }
 </style>

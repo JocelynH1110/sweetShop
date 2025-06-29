@@ -1,6 +1,9 @@
 @use "./_vars";
-* {
-  box-sixing: border-box;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
 :root {
@@ -12,6 +15,15 @@
   --tertiary: #8da291;
   --botton: #ffe180;
   --bottom-bg: var(--bottom);
+  --bg-light: #eaf0ed;
+  --green-light: var(--bg-light);
+  --bg-dark: #3f5d45;
+  --green-dark: var(--bg-dark);
+  --text-light: #eaf0ed;
+  --text-color: var(--text-light);
+  --text-dark: #3f5d45;
+  --text-colcr: var(--text-dark);
+  --container-width: #{vars.$container-width};
 }
 
 html,

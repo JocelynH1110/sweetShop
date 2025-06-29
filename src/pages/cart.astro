@@ -1,0 +1,110 @@
+---
+import { baseURL } from "@/config";
+import Layout from "../layouts/Layout.astro";
+import CartLineItem from "../components/CartLineItem.astro";
+---
+
+<Layout title="Cart">
+  <my-container>
+    <div class="cart-list">
+      <h2>您的購物車</h2>
+      <CartLineItem
+        productImageURL={baseURL + "/images/p-4.png"}
+        productTitle="焦糖蘋果派"
+        productBasePrice={450}
+        quantity={2}
+      />
+      <CartLineItem
+        productImageURL={baseURL + "/images/p-5.png"}
+        productTitle="草莓波士頓"
+        productBasePrice={450}
+        quantity={2}
+      />
+      <CartLineItem
+        productImageURL={baseURL + "/images/p-3.png"}
+        productTitle="頂級莓果派"
+        productBasePrice={450}
+        quantity={2}
+      />
+    </div>
+    <div class="summary">
+      <div class="color"><h2>訂單摘要</h2></div>
+      <div class="summary-items">
+        <p>小計</p>
+        <p>NT$ 2,700</p>
+        <p>運費</p>
+        <p>NT$ 300</p>
+        <p class="total">總計</p>
+        <p class="total">NT$ 3,000</p>
+      </div>
+      <a class="btn-payment" href={baseURL + "/payment"}>結帳</a>
+    </div>
+  </my-container>
+
+  <style lang="scss">
+    @use "../styles/_vars";
+    my-container {
+      display: flex;
+      gap: 1.25rem;
+      justify-content: center;
+    }
+    .cart-list {
+      h2 {
+        background: var(--bg-light);
+        text-align: center;
+        margin: 0;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      width: 38.75rem;
+      color: #3f5d45;
+      margin-bottom: 3.69rem;
+    }
+    .summary {
+      color: #eaf0ed;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      .color {
+        background: var(--bg-dark);
+      }
+      h2 {
+        text-align: center;
+        border-bottom: 1px solid #eaf0ed;
+        margin: 0 1.25rem 1rem 1.25rem;
+        padding: 1rem;
+      }
+    }
+
+    .summary-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0 1.437rem 1rem 1.125rem;
+      align-items: center;
+      background: var(--bg-dark);
+      p {
+        margin: 0;
+        font-weight: 300;
+      }
+      .total {
+        font-weight: 600;
+        padding-top: 1rem;
+      }
+    }
+    .summary-items > *:nth-child(even) {
+      justify-self: end;
+    }
+
+    .btn-payment {
+      display: flex;
+      background: #ffe180;
+      height: 4.06rem;
+      justify-content: center;
+      align-items: center;
+      color: #3f5d45;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</Layout>

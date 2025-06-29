@@ -6,11 +6,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "git tag -d deploy; git tag deploy --no-sign; git push --force origin deploy"
   },
   "dependencies": {
+    "@astrojs/svelte": "^7.1.0",
     "astro": "^5.9.3",
-    "sass": "^1.89.2"
+    "sass": "^1.89.2",
+    "svelte": "^5.34.3",
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
     "prettier": "^3.5.3",

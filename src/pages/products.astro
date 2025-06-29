@@ -1,0 +1,115 @@
+---
+import { baseURL } from "@/config";
+import Layout from "../layouts/Layout.astro";
+import { desserts } from "../data";
+import DessertCard from "../components/DessertCard.astro";
+---
+
+<Layout title="Product">
+  <my-container>
+    <img class="banner" src={baseURL + "/images/banner.png"} alt="banner" />
+
+    <div class="container">
+      <section>
+        <p>甜點類別</p>
+        <ol>
+          <a href="#"><li>所有甜點（48）</li></a>
+          <a href="#"><li>本日精選（10）</li></a>
+          <a href="#"><li>人氣推薦（26）</li></a>
+          <a href="#"><li>新品上市（12）</li></a>
+        </ol>
+      </section>
+
+      <div class="grid-card">
+        {desserts.map((dessert) => <DessertCard dessert={dessert} />)}
+      </div>
+    </div>
+    <div class="page">
+      <a href="#"
+        ><img src={baseURL + "/images/arrow_left.svg"} alt="previous-page" /></a
+      >
+      <a href="#"><li>1</li></a>
+      <a href="#"><li>2</li></a>
+      <a href="#"><li>3</li></a>
+      <a href="#">
+        <img src={baseURL + "/images/arrow_right.svg"} alt="next-page" /></a
+      >
+    </div>
+  </my-container>
+
+  <style lang="scss">
+    @use "../styles/_vars";
+    .banner {
+      max-width: 100%;
+      display: block;
+      margin: auto;
+    }
+    .container {
+      display: flex;
+      margin: 3.75rem 2.625rem;
+    }
+    section {
+      width: 18.75rem;
+      align-items: center;
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      p {
+        background: #3f5d45;
+        color: #eaf0ed;
+        width: 100%;
+        height: 4.06rem;
+        margin: 0;
+        padding-top: 1rem;
+      }
+      ol {
+        margin: 0;
+        padding: 0;
+        width: 18.75rem;
+        color: #3f5d45;
+        font-weight: bold;
+        background: #eaf0ed;
+      }
+      li {
+        border: 1px solid #eaf0ed;
+        list-style-type: none;
+        color: #3f5d45;
+        font-weight: bold;
+        padding: 1rem;
+        background: #ffffff;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .grid-card {
+      display: grid;
+      flex: 1;
+      gap: 1.25rem;
+      justify-content: center;
+      grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
+      margin-left: 1.25rem;
+    }
+
+    .page {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 3.75rem;
+      margin-right: 45px;
+      a {
+        border: 1px solid #eaf0ed;
+        padding: 0.7rem 1.625rem;
+        color: #3f5d45;
+        font-size: 1.25rem;
+        text-decoration: none;
+        list-style-type: none;
+        &:hover {
+          background: #3f5d45;
+          color: #eaf0ed;
+        }
+      }
+    }
+  </style>
+</Layout>
