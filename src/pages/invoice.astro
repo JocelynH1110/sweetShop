@@ -25,9 +25,11 @@ import ShoppingList from "../components/ShoppingList.astro";
 
       <form action={baseURL + "/success"}>
         <div class="btn-invoice">
-          <button class="e-invoice"><a href="/invoice">電子發票</a></button>
+          <button class="e-invoice"
+            ><a href={baseURL + "/invoice"}>電子發票</a></button
+          >
           <button class="paper-invoice"
-            ><a href="/paper-invoice">郵寄發票</a></button
+            ><a href={baseURL + "/paper-invoice"}>郵寄發票</a></button
           >
         </div>
         <div class="form-group full-width">
