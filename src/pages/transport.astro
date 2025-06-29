@@ -52,7 +52,8 @@ import ShoppingList from "../components/ShoppingList.astro";
           <input type="text" placeholder="幸福路 520 號" />
         </div>
       </form>
-      <button class="btn-next"><a href="/payment">下一步</a></button>
+      <button class="btn-next"><a href={baseURL + "/payment"}>下一步</a></button
+      >
     </div>
     <div>
       <PaymentList subtotal={2700} shipping={300} />

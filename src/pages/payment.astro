@@ -21,7 +21,7 @@ import ShoppingList from "../components/ShoppingList.astro";
         </div>
       </div>
 
-      <form action="/invoice" method="post">
+      <form action={baseURL + "/invoice"} method="post">
         <div class="form-group full-width">
           <label for="card-num">信用卡卡號</label>
           <input
